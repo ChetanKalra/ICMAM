@@ -35,7 +35,7 @@
 							<a href="#">Courses</a>
 						</li>
 						<li>
-							<a href="#">About Us</a>
+							<a href="About.html">About Us</a>
 						</li>
 						
 					</ul>
@@ -117,7 +117,14 @@
 
 		if($user)
 		{
-			header('Location: '.'Somepage.php');
+			if($Name=="Admin" && $Password == "Admin1234")
+			{
+				header('Location: '.'Admin/Dashboard.php');
+			}
+			else{
+				header('Location: '.'Somepage.php');	
+			}
+			
 		}
 		else{
 			echo "<script>

@@ -18,9 +18,18 @@
 	}
 
 
+	$query1 = $collection->find()->sort(array('UsersRegistered'=>-1))->limit(6);
+	//$query1->sort(array('UsersRegistered'=>-1))->limit(6);
+	$results1 = iterator_to_array($query1);
+	$size = sizeof($results1);
+	$array_of_results1[0] = current($results1);
+	
+	for($i=1;$i<$size;$i++)
+	{
+		$array_of_results1[$i] = next($results1);
+	}
 
-
-
+	//print_r($array_of_results1);
 	//exit;
 
 ?>
@@ -54,13 +63,13 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="">
-							<a href="Index.html">Home</a>
+							<a href="Index.php">Home</a>
 						</li>
 						<li>
 							<a href="#">Courses</a>
 						</li>
 						<li>
-							<a href="#">About Us</a>
+							<a href="links/About.html">About Us</a>
 						</li>
 						
 					</ul>
@@ -151,17 +160,42 @@
 				</div>
 			</div>
 			
-			<div class="row margin-top-20px animated fadeInUp">
+			<div class="row margin-top-20px">
 				<div class="col-md-12 default-padding">
 					
 					<div class="row">
+					
+					<a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" data-id="0">
 					 <div class="col-sm-6 col-md-4">
 					    <div class="thumbnail">
-					      <img src="assets/Images/Oceanography1.jpg" alt="..." class="img-dim">
+					      <div class="overflow-hidden relative-pos"><img src="assets/Images/Oceanography1.jpg" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
 					      <div class="caption">
 					        <!-- <h4 class="textcolor ellipsis_oneline">Satellite Oceanography</h4> -->
-					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results[0]['Title']) ?></h4>
-					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results[0]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results[0]['Start_Date']) ?> </span></p>
+					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[0]['Title']) ?></h4>
+					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[0]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[0]['Start_Date']) ?> </span></p>
+					        
+					      </div>
+					    </div>
+					 </div></a>
+
+					 <a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" data-id="1">
+					 <div class="col-sm-6 col-md-4 ">
+					    <div class="thumbnail">
+					      <div class="overflow-hidden relative-pos"><img src="assets/Images/Shoreline.jpg" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="caption">
+					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[1]['Title']) ?></h4>
+					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[1]['Prof_Assigned'])?> <span class="alttextcolor"> | <?php print_r($array_of_results1[1]['Start_Date']) ?> </span></p>
+					        
+					      </div>
+					    </div>
+					 </div></a>
+
+					 <div class="col-sm-6 col-md-4 ">
+					    <div class="thumbnail">
+					      <div class="overflow-hidden relative-pos"><img src="assets/Images/GIS.png" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="caption">
+					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[2]['Title']) ?></h4>
+					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[2]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[2]['Start_Date']) ?> </span></p>
 					        
 					      </div>
 					    </div>
@@ -169,10 +203,10 @@
 
 					 <div class="col-sm-6 col-md-4 ">
 					    <div class="thumbnail">
-					      <img src="assets/Images/Shoreline.jpg" alt="..." class="img-dim">
+					      <div class="overflow-hidden relative-pos"><img src="assets/Images/Coastal.jpg" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
 					      <div class="caption">
-					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results[1]['Title']) ?></h4>
-					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results[1]['Prof_Assigned'])?> <span class="alttextcolor"> | <?php print_r($array_of_results[1]['Start_Date']) ?> </span></p>
+					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[3]['Title']) ?></h4>
+					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[3]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[3]['Start_Date']) ?> </span></p>
 					        
 					      </div>
 					    </div>
@@ -180,10 +214,10 @@
 
 					 <div class="col-sm-6 col-md-4 ">
 					    <div class="thumbnail">
-					      <img src="assets/Images/GIS.png" alt="..." class="img-dim">
+					      <div class="overflow-hidden relative-pos"><img src="assets/Images/Sediment.jpg" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
 					      <div class="caption">
-					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results[2]['Title']) ?></h4>
-					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results[2]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results[2]['Start_Date']) ?> </span></p>
+					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[4]['Title']) ?></h4>
+					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[4]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[4]['Start_Date']) ?> </span></p>
 					        
 					      </div>
 					    </div>
@@ -191,32 +225,10 @@
 
 					 <div class="col-sm-6 col-md-4 ">
 					    <div class="thumbnail">
-					      <img src="assets/Images/Coastal.jpg" alt="..." class="img-dim">
+					      <div class="overflow-hidden relative-pos"><img src="assets/Images/Oil_Spill.jpg" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
 					      <div class="caption">
-					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results[3]['Title']) ?></h4>
-					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results[3]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results[3]['Start_Date']) ?> </span></p>
-					        
-					      </div>
-					    </div>
-					 </div>
-
-					 <div class="col-sm-6 col-md-4 ">
-					    <div class="thumbnail">
-					      <img src="assets/Images/Sediment.jpg" alt="..." class="img-dim">
-					      <div class="caption">
-					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results[4]['Title']) ?></h4>
-					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results[4]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results[4]['Start_Date']) ?> </span></p>
-					        
-					      </div>
-					    </div>
-					 </div>
-
-					 <div class="col-sm-6 col-md-4 ">
-					    <div class="thumbnail">
-					      <img src="assets/Images/Oil_Spill.jpg" alt="..." class="img-dim">
-					      <div class="caption">
-					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results[5]['Title']) ?></h4>
-					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results[5]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results[5]['Start_Date']) ?> </span></p>
+					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[5]['Title']) ?></h4>
+					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[5]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[5]['Start_Date']) ?> </span></p>
 					        
 					      </div>
 					    </div>
@@ -255,7 +267,7 @@
 			    </a> -->
 			    <p>Determining the accurate length of the coastline is important for such coastal zone management application as shoreline classification, monitoring erosion, mapping biological resources, habitat assessment and for the planing and response to nature (e.g. storm surges) and man made disasters (e.g. oil spills). Coastal zone management, by definition, is spatial management. Geo referenced spatial data is map data in a digital form which mean that each of the earth’s features that are stored as spatial data has a unique geographic reference such as latitude and longitude. The increasing use of spatial data and GIS (Geographic Information System) by organizations and researchers is a valuable tool to help solve the planning and management issues in the coastal zone.</p>
 
-			    <p class="button-course"><button class="btn btn-default">View Course</button></p>
+			    <p class="button-course"><button class="btn btn-default" data-toggle="modal" data-target="#Course">View Course</button></p>
 
 			  <!-- </div> -->
 			  
@@ -323,12 +335,58 @@
 		</div>
 	</div>
 
+	<div class="row" id="team" style="opacity: 0;">
+			<h3 class="text-center textcolor margin-bottom-20px">
+				Team
+			</h3>
+
+		
+			<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail author-thumbnail">
+		      		<img src="assets/Images/Team/user.png" class="author-img">
+		      	<div class="caption">
+		        	<h3 class="text-align-center author-name">Dr. RD Verma</h3>
+		        	<p class="text-align-center"></p>
+		        </div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail author-thumbnail">
+		      		<img src="assets/Images/Team/user.png" class="author-img">
+		      	<div class="caption">
+		        	<h3 class="text-align-center author-name">Dr. R. S. Kankara</h3>
+		        	<p class="text-align-center"></p>
+		        </div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail author-thumbnail">
+		      		<img src="assets/Images/Team/Team1.jpg" class="author-img">
+		      	<div class="caption">
+		        	<h3 class="text-align-center author-name">Dr. D. Mohan</h3>
+		        	<p class="text-align-center"></p>
+		        </div>
+		    	</div>
+		  	</div>
+
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail author-thumbnail">
+		      		<img src="assets/Images/Team/user.png" class="author-img">
+		      	<div class="caption">
+		        	<h3 class="text-align-center author-name">Dr. J. C. Verma</h3>
+		        	<p class="text-align-center"></p>
+		        </div>
+		    	</div>
+		  	</div>
+		
+
+	</div>
 
 
-
-
-	<div class="row margin-top-20px margin-bottom-20px">
-		<div class="col-md-12">
+	<div class="row margin-top-30px footer-row adjustment">
+		<div class="col-md-12 padding-25px">
 			<div class="row">
 				<div class="clearfix col-sm-6 col-md-4 default-padding">
 					<div class="clearfix FooterFirstCol">
@@ -386,6 +444,35 @@
 	</div>
 
 
+
+
+	<!-- Modal -->
+		<div class="modal fade" id="Course" role="dialog">
+	    <div class="modal-dialog">
+	    
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title"></h4>
+	        </div>
+	        <div class="modal-body">
+	          <p><?php print_r($array_of_results1[1]['Description'])?></p>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Register</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+	      
+	    </div>
+	  </div>
+  
+
+
+	<!-- /Modal -->
+
+
 	<!-- <div class="footer-div default-padding adjustment">
 
 	</div> -->
@@ -394,7 +481,39 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
-    
+
+    <script type="text/javascript">
+    	$(document).scroll(function () {
+		var y = $(this).scrollTop();
+		var x = $("#team").position();
+		
+
+		if (y > (x.top - 550)) { 
+		    $("#team").addClass(
+		        "animated");
+			$("#team").addClass(
+		        "fadeInUp");
+		}
+		
+});
+    </script>
+   
+
+   <script type="text/javascript">
+   	
+   	 $('#Course').on('show.bs.modal', function(e) {
+
+        var $modal = $(this);
+        var index = $(e.relatedTarget).attr('data-id');
+        
+        
+        $.ajax({
+        	success: function(data) {
+                $modal.find('.modal-title').html(index);
+            }
+        });
+    })
+   </script> 
 
   </body>
 </html>

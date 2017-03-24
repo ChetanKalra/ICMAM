@@ -42,7 +42,7 @@
 							<a href="#">Courses</a>
 						</li>
 						<li>
-							<a href="#">About Us</a>
+							<a href="About.html">About Us</a>
 						</li>
 						
 					</ul>
@@ -109,7 +109,7 @@
 													<div class="form-control-feedback">
 														<i class="icon-user-check text-muted"></i>
 													</div>
-													<input type="text" class="form-control custom-input" placeholder="Second name" name="SecondName">
+													<input type="text" class="form-control custom-input" placeholder="Last name" name="SecondName">
 													
 												</div>
 											</div>
