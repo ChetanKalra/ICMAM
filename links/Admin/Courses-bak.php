@@ -20,8 +20,6 @@
           //echo "Keyyyyyyyyyyyyy ".$i; 
       }
 
-      //print_r($array_of_results);
-
       //exit;
 
 ?>
@@ -89,8 +87,8 @@
                     <a href="Dashboard.php" class="nodecoration"><li><i class="icon-home4 icon-dashboard"></i>Dashboard</li></a>
                     <a href="Courses.php" class="nodecoration"><li class="active-ul"><i class="icon-tree5 icon-dashboard"></i>Training Programmes</li></a>
                     <a href="" class="nodecoration"><li><i class="icon-reading icon-dashboard"></i>Registered Users</li></a>
-                    <!-- <a href="Lessons.php" class="nodecoration"><li><i class="icon-indent-decrease2 icon-dashboard"></i>Lessons</li></a>
-                     --><a href="" class="nodecoration"><li><i class="icon-copy icon-dashboard"></i>Assignments</li></a>
+                    <a href="Lessons.php" class="nodecoration"><li><i class="icon-indent-decrease2 icon-dashboard"></i>Lessons</li></a>
+                    <a href="" class="nodecoration"><li><i class="icon-copy icon-dashboard"></i>Assignments</li></a>
                     <a href="" class="nodecoration"><li><i class="icon-task icon-dashboard"></i>Examination</li></a>
                   
                   </ul>
@@ -104,7 +102,7 @@
                     <h2 class="nav-title">Training Programmes</h2>
                   </div>
                   <div class="">
-                    <h2 class="add-btn"><a class="btn btn-default add-btn-custom" data-toggle="modal" data-target="#modal-container-addcourse" onclick="Temporary('<?php print_r($array_of_results[0]['Title']) ?>');">Add a new course</a></h2>
+                    <h2 class="add-btn"><a class="btn btn-default add-btn-custom" data-toggle="modal" data-target="#modal-container-addcourse">Add a new course</a></h2>
                   </div>
 
                   <div class="row admin-courses" style="padding-top: 10px">
@@ -114,32 +112,12 @@
                       for($i = $temp-1; $i>=0 ; $i--)
                       {
 
-                        $Title = $array_of_results[$i]['Title'];
-                        $Description = $array_of_results[$i]['Description'];
-                        $Img_Path = $array_of_results[$i]['Img_Path'];
-                        $Prof_Assigned = $array_of_results[$i]['Prof_Assigned'];
-                        $Duration = $array_of_results[$i]['Duration'];
-                        $Start_Date = $array_of_results[$i]['Start_Date'];
-                        $ID = $array_of_results[$i]['_id'];
-
-                        $t1 = rawurlencode($Title);
-                        $t2 = rawurlencode($Description);
-                        $t3 = rawurlencode($Img_Path);
-                        $t4 = rawurlencode($Prof_Assigned);
-                        $t5 = rawurlencode($Duration);
-                        $t6 = rawurlencode($Start_Date);
 
 
-                        $onclick = "Set('".$t1."','".$t2."','".$t4."','".$t5."','".$t6."')";
 
-                        //echo $t1;
-
-                        echo "<a href='Lessons.php?Title=".$Title."' class='nodecoration'><div class='col-sm-6 col-md-4'>
+                        echo "<div class='col-sm-6 col-md-4'>
                                 <div class='thumbnail'>
-                                <div class='overflow-hidden relative-pos'><img src='";
-                                print_r($array_of_results[$i]['Img_Path']);
-
-                                echo "' class='img-dim-admin'><span class=''></span></div>
+                                <div class='overflow-hidden relative-pos'><img src='../../assets/Images/Oil_Spill.jpg' class='img-dim'><span class='Preview'>Preview</span></div>
                         
                               <div class='caption'>
                               <h4 class='textcolor ellipsis_oneline'>"; print_r($array_of_results[$i]['Title']);
@@ -153,9 +131,7 @@
 
                         <div>
                           <a data-target='#modal-container-deletecourse".$i."' role='button' class='btn btn-primary removebutton' data-toggle='modal' >Remove</a>
-                          
-
-                          <a data-target='#modal-container-editcourse' role='button' class='btn btn-primary editbutton' data-toggle='modal' onclick=".$onclick.">Edit</a></a>
+                          <a href='#modal-container-addcourse' role='button' class='btn btn-primary editbutton' data-toggle='modal'>Edit</a>
 
 
 
@@ -199,7 +175,6 @@
                         </div>
                       </div>
                     </div>";
-                      
                       }
 
                     ?>
@@ -249,14 +224,14 @@
                   </h4>
                 </div>
                 <div class="modal-body">
-                  <form action="Upload.php" method="post" enctype="multipart/form-data">
+                  <form action="Upload.php" method="post">
                     
                     <div class="row">
                       <div class="column_image">
                         <h3>Select Course Image to Upload</h3>
                       </div><br>
                       <div class="column_image">
-                        <input type="file" name="file"/>
+                        <input type="file" name="fileToUpload" id="fileToUpload"/>
                       </div>
                     </div>
                     
@@ -314,117 +289,9 @@
 
   <!-- ========================== /Modal_End_Add_Course ==================== -->
 
-  <!-- ======================= Edit_Course_Modal ===================== -->
-
-    <div class="modal fade" id="modal-container-editcourse" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                   
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×
-                  </button>
-                  <h4 class="modal-title" id="myModalLabel">
-                    Enter Information
-                  </h4>
-                </div>
-                <div class="modal-body">
-                  <form action="Functions/Edit.php" method="post">
-                    
-                    <div class="row">
-                      <div class="column_image">
-                        <h3>Select Course Image to Upload</h3>
-                      </div><br>
-                      <div class="column_image">
-                        <input type="file" name="file" id="fileToUpload"/>
-                      </div>
-                    </div>
-                    
-                    <div class="row">
-                      <div class="col-md-12">
-                        <h3>Course Title</h3><br>
-                        <input type="text" name="CourseTitle" id="EditCourseTitle" placeholder="Title"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <h3>Course Description</h3><br>
-                        <input type="text" name="CourseDes" id="EditCourseDes" placeholder="Enter Here"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <h3>Professor Assigned</h3><br>
-                        <input type="text" name="Professor" id="Edit_Prof_Assigned" placeholder="Enter Here"/>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <h3>Duration</h3><br>
-                        <input type="text" name="Duration" id="Edit_Duration" placeholder="Enter Here"/>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-12">
-                        <h3>Start_Date</h3><br>
-                        <input type="text" name="Start_Date" id="Edit_Start_Date" placeholder="Month/year"/>
-                      </div>
-                    </div>
-
-                    <div class="modal-footer">
-                   
-                      <button type="button" class="btn btn-default" data-dismiss="modal" name="Close" id="Close">
-                      Close
-                      </button> 
-
-
-                      <input type="submit" class="btn btn-primary" name="Save_Edit" id="AddCourse" value="Save changes"/>
-                    
-                    </div>
-                  </form>
-                </div>
-                
-              </div>
-              
-            </div>
-            
-          </div>
-
-
-  <!-- ========================== /Modal_End_Edit_Course ==================== -->
-
-
       <script src="../../js/jquery.min.js"></script>
       <script src="../../js/bootstrap.min.js"></script>
       <script src="../../js/scripts.js"></script>
-
-      <script type="text/javascript">
-        
-        function Set(a,b,c,d,e)
-        {
-
-          var a = decodeURIComponent(a);
-
-          var b = decodeURIComponent(b);
-
-          var c = decodeURIComponent(c);
-
-          var d = decodeURIComponent(d);
-
-          var e = decodeURIComponent(e);
-
-          //var f = decodeURIComponent(f);
-          
-          $('#EditCourseTitle').val(a);
-          $('#EditCourseDes').val(b);
-          $('#Edit_Prof_Assigned').val(c);
-          $('#Edit_Duration').val(d);
-          $('#Edit_Start_Date').val(e);
-
-        }
-
-      </script>
   </body>
 
 </html>

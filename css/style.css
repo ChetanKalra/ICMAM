@@ -66,6 +66,20 @@ h1, h2, h3, h4, h5, h6 {
   	transform: scale(1.04);
 }
 
+.img-dim-admin{
+	width: 100% !important;
+	height: 245px !important;
+	transition: all 0.3s;
+}
+
+.thumbnail:hover .img-dim-admin{
+	transition: 0.3s;
+	color: #fff;
+	-moz-transform: scale(1.04);
+    -webkit-transform: scale(1.04);
+  	transform: scale(1.04);
+}
+
 .Preview{
 	position: absolute;
 	left: 50%;
@@ -656,7 +670,7 @@ h1, h2, h3, h4, h5, h6 {
 	/*height: calc(100vh - 50px);*/
 	/*height: -webkit-calc(100vh - 50px);*/
 	/*height: -moz-calc(100vh - 50px);*/
-	z-index: -1;
+	z-index: 1000;
 }
 
 .Admin{
@@ -758,4 +772,19 @@ h1, h2, h3, h4, h5, h6 {
 	
 }
 
+.removebutton, .editbutton{
+	background-color: #555 !important;
+	color: #fff !important;
+	border:none;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.removebutton:hover, .editbutton:hover {
+	background-color: #3e3d3d !important;
+	color: #fff !important;
+	border:none;
+}
+
 /* /Admin */
+

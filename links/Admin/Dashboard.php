@@ -56,8 +56,8 @@
                     <a href="Dashboard.php" class="nodecoration"><li class="active-ul"><i class="icon-home4 icon-dashboard"></i>Dashboard</li></a>
                     <a href="Courses.php" class="nodecoration"><li ><i class="icon-tree5 icon-dashboard"></i>Training Programmes</li></a>
                     <a href="" class="nodecoration"><li><i class="icon-reading icon-dashboard"></i>Registered Users</li></a>
-                    <a href="Lessons.php" class="nodecoration"><li><i class="icon-indent-decrease2 icon-dashboard"></i>Lessons</li></a>
-                    <a href="" class="nodecoration"><li><i class="icon-copy icon-dashboard"></i>Assignments</li></a>
+                    <!-- <a href="Lessons.php" class="nodecoration"><li><i class="icon-indent-decrease2 icon-dashboard"></i>Lessons</li></a>
+                     --><a href="" class="nodecoration"><li><i class="icon-copy icon-dashboard"></i>Assignments</li></a>
                     <a href="" class="nodecoration"><li><i class="icon-task icon-dashboard"></i>Examination</li></a>
                   
                   </ul>

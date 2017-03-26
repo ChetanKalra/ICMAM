@@ -1,4 +1,31 @@
+<?php
+  
+  $Title = $_GET['Title'];
+
+  $con = new MongoClient();
+
+  $db = $con->ICMAM;
+
+  $collection = $db->courses;
+
+  $query= $collection->find(array('Title'=>$Title));
+
+
+  $array_of_results = iterator_to_array($query);
+
+  // print_r($array_of_results);
+
+  // exit;
+
+?>
+
+
+
+
 <!DOCTYPE html>
+
+
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -56,8 +83,8 @@
                     <a href="Dashboard.php" class="nodecoration"><li><i class="icon-home4 icon-dashboard"></i>Dashboard</li></a>
                     <a href="Courses.php" class="nodecoration"><li ><i class="icon-tree5 icon-dashboard"></i>Training Programmes</li></a>
                     <a href="" class="nodecoration"><li><i class="icon-reading icon-dashboard"></i>Registered Users</li></a>
-                    <a href="" class="nodecoration"><li class="active-ul"><i class="icon-indent-decrease2 icon-dashboard"></i>Lessons</li></a>
-                    <a href="" class="nodecoration"><li><i class="icon-copy icon-dashboard"></i>Assignments</li></a>
+                    <!-- <a href="" class="nodecoration"><li class="active-ul"><i class="icon-indent-decrease2 icon-dashboard"></i>Lessons</li></a>
+                     --><a href="" class="nodecoration"><li><i class="icon-copy icon-dashboard"></i>Assignments</li></a>
                     <a href="" class="nodecoration"><li><i class="icon-task icon-dashboard"></i>Examination</li></a>
                   
                   </ul>
@@ -70,14 +97,19 @@
                   <div class="heading-rightsection">
                     <h2 class="nav-title">Training Programmes</h2>
                   </div>
-                  <div class="">
-                    <h2 class="add-btn"><a class="btn btn-default add-btn-custom" data-toggle="modal" data-target="#add-modal">Upload-Videos</a></h2>
+                  <div class="" style="margin-top: 170px">
+                    <form action="Functions/upload.php?Title=<?php echo $Title; ?>" enctype="multipart/form-data" method="POST">
+
+                    <input type="file" name="file">
+                    <input type="submit" name="submit">
+
+                    </form>
                   </div>
 
-                   <div class="">
+                   <!-- <div class="">
                     <h2 class="add-btn"><a class="btn btn-default add-btn-custom" data-toggle="modal" data-target="#add-modal">Upload-Images</a></h2>
                   </div>
-
+ -->
                   <div class="row admin-courses" style="padding-top: 10px">
 
                  
