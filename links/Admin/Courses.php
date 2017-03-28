@@ -20,9 +20,9 @@
           //echo "Keyyyyyyyyyyyyy ".$i; 
       }
 
-      //print_r($array_of_results);
+      // print_r($array_of_results);
 
-      //exit;
+      // exit;
 
 ?>
 
@@ -151,12 +151,13 @@
                           
                         </div>
 
-                        <div class='text-align-right'>
+                        <div class=''>
+                          <div class='text-align-right'>
                           <a data-target='#modal-container-deletecourse".$i."' role='button' class='btn btn-default removebutton' data-toggle='modal' >Remove</a>
                           
 
                           <a data-target='#modal-container-editcourse' role='button' class='btn btn-default editbutton' data-toggle='modal' onclick=".$onclick.">Edit</a></a>
-
+                          </div>
 
 
                           <!-- ===================== Modal-Edit ================ -->

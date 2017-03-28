@@ -1,6 +1,7 @@
 <?php
   
   $Title = $_GET['Title'];
+  $Course_Title = rawurldecode($Title);
 
   $con = new MongoClient();
 
@@ -13,8 +14,11 @@
 
   $array_of_results = iterator_to_array($query);
 
-  // print_r($array_of_results);
 
+  $res[0] = current($array_of_results);
+  // print_r($array_of_results[0]['Img_Path']);
+
+  // print_r($res);
   // exit;
 
 ?>
@@ -89,28 +93,41 @@
                 </div>
               </div>
 
-              <div class="right-sidebar zeropadding">
+              <div class="right-sidebar zeropadding" >
 
-                  <div class="heading-rightsection">
-                    <h2 class="nav-title">Training Programmes</h2>
+                  <div class="heading_lesson">
+                    <h2 class="nav-title padding-top-40px"><?php echo $Course_Title; ?></h2>
                   </div>
-                  <div class="" style="margin-top: 170px">
+                 
+
+                  <!-- <div class="" style="margin-top: 170px">
                     <form action="Functions/upload.php?Title=<?php echo $Title; ?>" enctype="multipart/form-data" method="POST">
 
                     <input type="file" name="file">
                     <input type="submit" name="submit">
 
                     </form>
-                  </div>
+                  </div> -->
 
                    <!-- <div class="">
                     <h2 class="add-btn"><a class="btn btn-default add-btn-custom" data-toggle="modal" data-target="#add-modal">Upload-Images</a></h2>
                   </div>
  -->
-                  <div class="row admin-courses" style="padding-top: 10px">
+                  <div class="row admin-courses" style="padding-top: 20px">
 
-                 
+                    <div class="col-md-12">
 
+                      <div class="col-md-4 zeropadding">
+                        <img src="../../<?php print_r($res[0]['Img_Path']); ?>" class="course-img">
+                      </div>
+
+                      <div class="col-md-8">
+                        <h3 class="margin-top-0px">Description:</h3>
+                        <p><?php print_r($res[0]['Description']) ?></p>
+                      </div>
+
+
+                    </div>
 
                   </div>
               

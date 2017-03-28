@@ -290,7 +290,8 @@
 			    </a> -->
 			    <p><?php print_r($array_of_results2[0]['Description']) ?></p>
 
-			    <p class="button-course"><button class="btn btn-default" data-toggle="modal" onclick="Set('<?php print_r($array_of_results2[0]['Title'])?>','<?php print_r($array_of_results2[0]['Description']) ?>')" data-target="#Course">View Course</button></p>
+			    <p class="button-course">
+			    <a href="links/Course_Details.php"><button class="btn btn-default" data-toggle="modal" data-target="#Course">View Course</button></a></p>
 
 			  <!-- </div> -->
 			  
@@ -311,7 +312,8 @@
 
         <p><?php print_r($array_of_results2[1]['Description']);?>
         </p>
-        <p class="button-course"><button data-toggle="modal" class="btn btn-default" onclick="Set('<?php print_r($array_of_results2[1]['Title'])?>','<?php print_r($array_of_results2[1]['Description']) ?>')" data-target="#Course">View Course</button></p>
+        <p class="button-course">
+        <a href="links/Course_Details.php"><button data-toggle="modal" class="btn btn-default" data-target="#Course">View Course</button></a></p>
         </div>
         
       </div>
@@ -327,7 +329,7 @@
         <div class="panel-body padding-left-30">
 
         <p><?php print_r($array_of_results2[2]['Description']) ?></p>
-        <p class="button-course"><button data-toggle="modal" class="btn btn-default" onclick="Set('<?php print_r($array_of_results2[2]['Title'])?>','<?php print_r($array_of_results2[2]['Description']) ?>')" data-target="#Course">View Course</button></p>
+        <p class="button-course"><a href="links/Course_Details.php"><button data-toggle="modal" class="btn btn-default" data-target="#Course">View Course</button></a></p>
 
         </div>
       </div>
@@ -345,7 +347,8 @@
 
         <p><?php print_r($array_of_results2[3]['Description']); ?>
         </p>
-        <p class="button-course"><button data-toggle="modal" class="btn btn-default" onclick="Set('<?php print_r($array_of_results2[3]['Title'])?>','<?php print_r($array_of_results2[3]['Description']) ?>')" data-target="#Course">View Course</button></p>
+        <p class="button-course">
+        <a href="links/Course_Details.php"><button data-toggle="modal" class="btn btn-default" data-target="#Course">View Course</button></a></p>
         </div>
         
       </div>
@@ -481,7 +484,7 @@
 	          <p id="Description-modal"></p>
 	        </div>
 	        <div class="modal-footer">
-	          <button type="button" class="btn btn-default" data-dismiss="modal">View</button>
+	          <a href="" onclick="onclick_set()" id="view_course_detail"><button type="button" class="btn btn-default">View</button></a> 
 	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	        </div>
 	      </div>
@@ -527,8 +530,17 @@
 	    	
 	    	$('#Title-modal').html(a);
 	    	$('#Description-modal').html(b);
+	    	$('#Course').attr('data-id',a);
 	    }
 
+
+	    function onclick_set()
+	    {
+	    	var a = $('#Course').attr("data-id");
+	    	var url = 'links/Course_Details.php?Title='+a;
+	    	// alert(url);
+	    	$('#view_course_detail').attr('href',url);
+	    }
 
     </script>
    
