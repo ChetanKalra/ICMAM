@@ -7,7 +7,7 @@
 
       $query= $collection->find();
       
-      //$query->sort(array('UsersRegistered'=>-1));
+      $query->sort(array('UsersRegistered'=>-1));
       
       $results = iterator_to_array($query);
       $temp=sizeof($results);
@@ -88,7 +88,7 @@
                   <ul class="subsection-ul">
                     <a href="Dashboard.php" class="nodecoration"><li><i class="icon-home4 icon-dashboard"></i>Dashboard</li></a>
                     <a href="Courses.php" class="nodecoration"><li class="active-ul"><i class="icon-tree5 icon-dashboard"></i>Training Programmes</li></a>
-                    <a href="" class="nodecoration"><li><i class="icon-reading icon-dashboard"></i>Registered Users</li></a>
+                    <a href="users.php" class="nodecoration"><li><i class="icon-reading icon-dashboard"></i>Registered Users</li></a>
                     <!-- <a href="Lessons.php" class="nodecoration"><li><i class="icon-indent-decrease2 icon-dashboard"></i>Lessons</li></a>
                      --><a href="" class="nodecoration"><li><i class="icon-copy icon-dashboard"></i>Assignments</li></a>
                     <a href="" class="nodecoration"><li><i class="icon-task icon-dashboard"></i>Examination</li></a>
@@ -104,7 +104,7 @@
                     <h2 class="nav-title">Training Programmes</h2>
                   </div>
                   <div class="">
-                    <h2 class="add-btn"><a class="btn btn-default add-btn-custom" data-toggle="modal" data-target="#modal-container-addcourse" onclick="Temporary('<?php print_r($array_of_results[0]['Title']) ?>');">Add a new course</a></h2>
+                    <h2 class="add-btn"><a class="btn btn-default " data-toggle="modal" data-target="#modal-container-addcourse" onclick="Temporary('<?php print_r($array_of_results[0]['Title']) ?>');">Add a new course</a></h2>
                   </div>
 
                   <div class="row admin-courses" style="padding-top: 10px">
@@ -136,7 +136,7 @@
 
                         echo "<a href='Lessons.php?Title=".$Title."' class='nodecoration'><div class='col-sm-6 col-md-4'>
                                 <div class='thumbnail'>
-                                <div class='overflow-hidden relative-pos'><img src='";
+                                <div class='overflow-hidden relative-pos'><img src='../../";
                                 print_r($array_of_results[$i]['Img_Path']);
 
                                 echo "' class='img-dim-admin'><span class=''></span></div>
@@ -151,11 +151,11 @@
                           
                         </div>
 
-                        <div>
-                          <a data-target='#modal-container-deletecourse".$i."' role='button' class='btn btn-primary removebutton' data-toggle='modal' >Remove</a>
+                        <div class='text-align-right'>
+                          <a data-target='#modal-container-deletecourse".$i."' role='button' class='btn btn-default removebutton' data-toggle='modal' >Remove</a>
                           
 
-                          <a data-target='#modal-container-editcourse' role='button' class='btn btn-primary editbutton' data-toggle='modal' onclick=".$onclick.">Edit</a></a>
+                          <a data-target='#modal-container-editcourse' role='button' class='btn btn-default editbutton' data-toggle='modal' onclick=".$onclick.">Edit</a></a>
 
 
 
@@ -181,7 +181,7 @@
                                 <p>Do you want to proceed?</p>
                             </div>
                             <div class='modal-footer'>
-                             <input type='submit' value='Yes' class='btn danger' name='yes_remove' id='yes_remove'
+                             <input type='submit' value='Yes' class='btn btn-default' name='yes_remove' id='yes_remove'
                              >
                             
                             <button type='button' class='btn btn-default' data-dismiss='modal'>
@@ -245,62 +245,64 @@
                     ×
                   </button>
                   <h4 class="modal-title" id="myModalLabel">
-                    Enter Information
+                    Course Details
                   </h4>
                 </div>
                 <div class="modal-body">
                   <form action="Upload.php" method="post" enctype="multipart/form-data">
                     
-                    <div class="row">
-                      <div class="column_image">
-                        <h3>Select Course Image to Upload</h3>
-                      </div><br>
-                      <div class="column_image">
-                        <input type="file" name="file"/>
+                    <div class="row margin-bottom-20px">
+                    <div class="col-md-12">
+                        <div class="column_image">
+                          <h4>Select Course Image</h4>
+                        </div>
+                        <div class="column_image">
+                          <input type="file" class="form-control" name="file"/>
+                        </div>
                       </div>
                     </div>
                     
-                    <div class="row">
+                    <div class="row margin-bottom-20px">
                       <div class="col-md-12">
-                        <h3>Course Title</h3><br>
-                        <input type="text" name="CourseTitle" id="CourseTitle" placeholder="Title"/>
+                        <!-- <h3>Course Title</h3><br> -->
+                        <input type="text" name="CourseTitle" id="CourseTitle" placeholder="Title" class="form-control custom-input" />
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row margin-bottom-20px">
                       <div class="col-md-12">
-                        <h3>Course Description</h3><br>
-                        <input type="text" name="CourseDes" id="CourseDes" placeholder="Enter Here"/>
+                        <!-- <h3>Course Description</h3><br> -->
+                        <textarea name="CourseDes" id="CourseDes" placeholder="Description" class="form-control textarea-box" width="100%"/></textarea>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row margin-bottom-20px">
                       <div class="col-md-12">
-                        <h3>Professor Assigned</h3><br>
-                        <input type="text" name="ProfessorAss" id="ProffesorAss" placeholder="Enter Here"/>
+                        <!-- <h3>Professor Assigned</h3><br> -->
+                        <input type="text" name="ProfessorAss" id="ProffesorAss" placeholder="Professor Assigned" class="form-control custom-input" />
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row margin-bottom-20px">
                       <div class="col-md-12">
-                        <h3>Duration</h3><br>
-                        <input type="text" name="Duration" id="Duration" placeholder="Enter Here"/>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-12">
-                        <h3>Start_Date</h3><br>
-                        <input type="text" name="Start_Date" id="Start_Date" placeholder="Month/year"/>
+                        <!-- <h3>Duration</h3><br> -->
+                        <input type="text" name="Duration" id="Duration" placeholder="Duration" class="form-control custom-input" />
                       </div>
                     </div>
 
-                    <div class="modal-footer">
-                   
+                    <div class="row margin-bottom-20px">
+                      <div class="col-md-12">
+                        <!-- <h3>Start_Date</h3><br> -->
+                        <input type="text" name="Start_Date" id="Start_Date" placeholder="Start Date" class="form-control custom-input" />
+                      </div>
+                    </div>
+
+                    <div class="row margin-bottom-20px">
+                    <div class="col-md-12 text-align-right">
                       <button type="button" class="btn btn-default" data-dismiss="modal" name="Close" id="Close">
                       Close
                       </button> 
 
 
                       <input type="submit" class="btn btn-primary" name="AddCourse" id="AddCourse" value="Save changes" />
-                    
+                    </div>
                     </div>
                   </form>
                 </div>
@@ -325,62 +327,66 @@
                     ×
                   </button>
                   <h4 class="modal-title" id="myModalLabel">
-                    Enter Information
+                    Edit Details
                   </h4>
                 </div>
                 <div class="modal-body">
-                  <form action="Functions/Edit.php" method="post">
+                  <form action="Functions/Edit.php" method="post" enctype="multipart/form">
                     
-                    <div class="row">
-                      <div class="column_image">
-                        <h3>Select Course Image to Upload</h3>
-                      </div><br>
-                      <div class="column_image">
-                        <input type="file" name="file" id="fileToUpload"/>
+                    <div class="row margin-bottom-20px">
+
+                    <div class="col-md-12">
+                        <div class="column_image">
+                          <h4>Edit Course Image</h4>
+                        </div>
+                        <div class="column_image">
+                          <input type="file" class="form-control" name="file" />
+                        </div>
                       </div>
                     </div>
                     
-                    <div class="row">
+                    <div class="row margin-bottom-20px">
                       <div class="col-md-12">
-                        <h3>Course Title</h3><br>
-                        <input type="text" name="CourseTitle" id="EditCourseTitle" placeholder="Title"/>
+                        <h4>Title</h4>
+                        <input type="text" name="CourseTitle" id="EditCourseTitle" class="form-control custom-input" placeholder="Title"/>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row margin-bottom-20px">
                       <div class="col-md-12">
-                        <h3>Course Description</h3><br>
-                        <input type="text" name="CourseDes" id="EditCourseDes" placeholder="Enter Here"/>
+                        <h4>Description</h4>
+                        <textarea type="text" name="CourseDes" id="EditCourseDes" class="form-control textarea-box" placeholder="Enter Here" style="height: 120px;"></textarea>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row margin-bottom-20px">
                       <div class="col-md-12">
-                        <h3>Professor Assigned</h3><br>
-                        <input type="text" name="Professor" id="Edit_Prof_Assigned" placeholder="Enter Here"/>
+                        <h4>Professor Assigned</h4>
+                        <input type="text" name="Professor" id="Edit_Prof_Assigned" class="form-control custom-input" placeholder="Enter Here"/>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row margin-bottom-20px">
                       <div class="col-md-12">
-                        <h3>Duration</h3><br>
-                        <input type="text" name="Duration" id="Edit_Duration" placeholder="Enter Here"/>
+                        <h4>Duration</h4>
+                        <input type="text" name="Duration" class="form-control custom-input" id="Edit_Duration" placeholder="Enter Here"/>
                       </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row margin-bottom-20px">
                       <div class="col-md-12">
-                        <h3>Start_Date</h3><br>
-                        <input type="text" name="Start_Date" id="Edit_Start_Date" placeholder="Month/year"/>
+                        <h4>Start Date</h4>
+                        <input type="text" name="Start_Date" id="Edit_Start_Date" class="form-control custom-input" placeholder="Start_Date"/>
                       </div>
                     </div>
 
-                    <div class="modal-footer">
                    
+                   <div class="margin-bottom-20px row">
+                   <div class="col-md-12 text-align-right">
                       <button type="button" class="btn btn-default" data-dismiss="modal" name="Close" id="Close">
                       Close
                       </button> 
 
 
                       <input type="submit" class="btn btn-primary" name="Save_Edit" id="AddCourse" value="Save changes"/>
-                    
+                    </div>
                     </div>
                   </form>
                 </div>

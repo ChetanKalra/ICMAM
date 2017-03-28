@@ -29,7 +29,7 @@
 							<a href="../Index.php">Home</a>
 						</li>
 						<li>
-							<a href="#">Courses</a>
+							<a href="Courses-users.php">Courses</a>
 						</li>
 						<li>
 							<a href="About.html">About Us</a>
@@ -125,7 +125,7 @@
 					  			<h2 class="text-color-555 text-align-center fs-22">Contact Us</h2>
 					  		</div>
 					  	
-		  					<form method="POST" class="" autocomplete="off">
+		  					<form method="POST" action="Functions/Query.php" autocomplete="off">
 								
 									<div class="form-group has-feedback has-feedback-left foot">
 										<input type="text" class="form-control custom-input" placeholder="Name" name="name">
@@ -138,12 +138,12 @@
 									</div>
 
 									<div class="form-group margin-bottom-20">
-										<textarea placeholder="Message" class="form-control textarea-box" rows="5" width="30"></textarea>
+										<textarea placeholder="Message" class="form-control textarea-box" rows="5" width="30" name="message"></textarea>
 									</div>
 
 
 									<div class="form-group foot">
-										<button type="submit" class="btn login-submit-btn btn-block" name="Login" style="color: #fff;">Submit</button>
+										<button type="submit" class="btn login-submit-btn btn-block" name="submit" style="color: #fff;">Submit</button>
 										
 									</div>
 									
@@ -153,7 +153,7 @@
 			</div>
 
 
-			
+
 
 
     <script src="../js/jquery.min.js"></script>

@@ -13,6 +13,16 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 
+    <script type="text/javascript" src="http://www.jquery4u.com/demos/jquery-quick-pagination/js/jquery.quick.pagination.min.js"></script>
+
+    <script type="text/javascript">
+	$(document).ready(function() {
+			
+		$("ul.pagination3").quickPagination({pageSize:"3 "});
+	});
+</script>
+
+
   </head>
   <body>
 
@@ -218,6 +228,8 @@
 				<div class="col-md-10">
 					<div class="row">
 					<!--Column1-->
+						<ul class="pagination3">
+						<li>
 							<div class="col-md-4">
 							<div class="thumbnail">
 								<img alt="Bootstrap Thumbnail First" src="http://lorempixel.com/output/people-q-c-600-200-1.jpg">
@@ -395,6 +407,8 @@
 								</div>
 							</div>
 						</div>
+						</li>
+						<li>
 						<div class="row">
 						<div class="col-md-4">
 							<div class="thumbnail">
@@ -556,7 +570,8 @@
 								</div>
 							</div>
 						</div>
-
+						</li>
+						<li>
 						<div class="row">
 						<div class="col-md-4">
 							<div class="thumbnail">
@@ -708,6 +723,8 @@
 			</div>
 		</div>
 	</div>
+	</li>
+	</ul>
 	<div class="row">
 		<div class="col-md-12">
 			 
@@ -721,5 +738,8 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+
+    
+</script>
   </body>
 </html>

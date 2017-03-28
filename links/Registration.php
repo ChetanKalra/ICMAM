@@ -39,7 +39,7 @@
 							<a href="../Index.php">Home</a>
 						</li>
 						<li>
-							<a href="#">Courses</a>
+							<a href="Courses-users.php">Courses</a>
 						</li>
 						<li>
 							<a href="About.html">About Us</a>

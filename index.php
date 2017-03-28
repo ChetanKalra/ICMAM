@@ -31,6 +31,20 @@
 
 	//print_r($array_of_results1);
 	//exit;
+	$query2 = $collection->find()->sort(array('insert_date'=>-1))->limit(4);
+
+	$res = iterator_to_array($query2);
+
+	$array_of_results2[0] = current($res);
+	for($i=1;$i<sizeof($res);$i++)
+	{
+		$array_of_results2[$i] = next($res);
+	}
+
+	//print_r($array_of_results2);
+
+
+	//exit;
 
 ?>
 
@@ -47,6 +61,9 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
+    <!-- <script type="text/javascript" src="js/jquery.quick.pagination.min.js"></script> -->
+
+
   </head>
   <body>
 
@@ -66,7 +83,7 @@
 							<a href="Index.php">Home</a>
 						</li>
 						<li>
-							<a href="#">Courses</a>
+							<a href="links/Courses-users.php">Courses</a>
 						</li>
 						<li>
 							<a href="links/About.html">About Us</a>
@@ -160,15 +177,15 @@
 				</div>
 			</div>
 			
-			<div class="row margin-top-20px">
+			<div class="row margin-top-20px pagination">
 				<div class="col-md-12 default-padding">
 					
 					<div class="row">
 					
-					<a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" data-id="0">
+					<a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" onclick="Set('<?php print_r($array_of_results1[0]['Title'])?>','<?php print_r($array_of_results1[0]['Description']) ?>')">
 					 <div class="col-sm-6 col-md-4">
 					    <div class="thumbnail">
-					      <div class="overflow-hidden relative-pos"><img src="assets/Images/Oceanography1.jpg" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="overflow-hidden relative-pos"><img src=<?php print_r($array_of_results1[0]['Img_Path']) ?> alt="..." class="img-dim"><span class="Preview">Preview</span></div>
 					      <div class="caption">
 					        <!-- <h4 class="textcolor ellipsis_oneline">Satellite Oceanography</h4> -->
 					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[0]['Title']) ?></h4>
@@ -178,10 +195,10 @@
 					    </div>
 					 </div></a>
 
-					 <a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" data-id="1">
+					 <a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" onclick="Set('<?php print_r($array_of_results1[1]['Title'])?>','<?php print_r($array_of_results1[1]['Description']) ?>')">
 					 <div class="col-sm-6 col-md-4 ">
 					    <div class="thumbnail">
-					      <div class="overflow-hidden relative-pos"><img src="assets/Images/Shoreline.jpg" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="overflow-hidden relative-pos"><img src=<?php print_r($array_of_results1[1]['Img_Path']) ?> alt="..." class="img-dim"><span class="Preview">Preview</span></div>
 					      <div class="caption">
 					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[1]['Title']) ?></h4>
 					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[1]['Prof_Assigned'])?> <span class="alttextcolor"> | <?php print_r($array_of_results1[1]['Start_Date']) ?> </span></p>
@@ -190,49 +207,55 @@
 					    </div>
 					 </div></a>
 
+					 <a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" onclick="Set('<?php print_r($array_of_results1[2]['Title'])?>','<?php print_r($array_of_results1[2]['Description']) ?>')">
 					 <div class="col-sm-6 col-md-4 ">
 					    <div class="thumbnail">
-					      <div class="overflow-hidden relative-pos"><img src="assets/Images/GIS.png" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="overflow-hidden relative-pos"><img src=<?php print_r($array_of_results1[2]['Img_Path']) ?> alt="..." class="img-dim"><span class="Preview">Preview</span></div>
 					      <div class="caption">
 					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[2]['Title']) ?></h4>
 					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[2]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[2]['Start_Date']) ?> </span></p>
 					        
 					      </div>
 					    </div>
-					 </div>
+					 </div></a>
 
+
+					 <a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" onclick="Set('<?php print_r($array_of_results1[3]['Title'])?>','<?php print_r($array_of_results1[3]['Description']) ?>')">
 					 <div class="col-sm-6 col-md-4 ">
 					    <div class="thumbnail">
-					      <div class="overflow-hidden relative-pos"><img src="assets/Images/Coastal.jpg" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="overflow-hidden relative-pos"><img src=<?php print_r($array_of_results1[3]['Img_Path']) ?> alt="..." class="img-dim"><span class="Preview">Preview</span></div>
 					      <div class="caption">
 					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[3]['Title']) ?></h4>
 					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[3]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[3]['Start_Date']) ?> </span></p>
 					        
 					      </div>
 					    </div>
-					 </div>
+					 </div></a>
 
+
+					 <a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" onclick="Set('<?php print_r($array_of_results1[4]['Title'])?>','<?php print_r($array_of_results1[4]['Description']) ?>')">
 					 <div class="col-sm-6 col-md-4 ">
 					    <div class="thumbnail">
-					      <div class="overflow-hidden relative-pos"><img src="assets/Images/Sediment.jpg" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="overflow-hidden relative-pos"><img src=<?php print_r($array_of_results1[4]['Img_Path']) ?> alt="..." class="img-dim"><span class="Preview">Preview</span></div>
 					      <div class="caption">
 					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[4]['Title']) ?></h4>
 					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[4]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[4]['Start_Date']) ?> </span></p>
 					        
 					      </div>
 					    </div>
-					 </div>
+					 </div></a>
 
+					 <a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" onclick="Set('<?php print_r($array_of_results1[5]['Title'])?>','<?php print_r($array_of_results1[5]['Description']) ?>')">
 					 <div class="col-sm-6 col-md-4 ">
 					    <div class="thumbnail">
-					      <div class="overflow-hidden relative-pos"><img src="assets/Images/Oil_Spill.jpg" alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="overflow-hidden relative-pos"><img src=<?php print_r($array_of_results1[5]['Img_Path']) ?> alt="..." class="img-dim"><span class="Preview">Preview</span></div>
 					      <div class="caption">
 					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[5]['Title']) ?></h4>
 					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[5]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[5]['Start_Date']) ?> </span></p>
 					        
 					      </div>
 					    </div>
-					 </div>
+					 </div></a>
 
 					  
 					  
@@ -254,7 +277,7 @@
     <div class="panel panel-default">
       <div class="panel-heading padding-left-30">
         <h4 class="panel-title ellipsis_oneline">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Applications of GIS in the management of Coastal Critical Habitats</a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php print_r($array_of_results2[0]['Title']) ?></a>
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse in">
@@ -265,9 +288,9 @@
 			    <!-- <a href="#" class="thumbnail">
 			      <img src="assets/Images/Coastal.jpg" alt="...">
 			    </a> -->
-			    <p>Determining the accurate length of the coastline is important for such coastal zone management application as shoreline classification, monitoring erosion, mapping biological resources, habitat assessment and for the planing and response to nature (e.g. storm surges) and man made disasters (e.g. oil spills). Coastal zone management, by definition, is spatial management. Geo referenced spatial data is map data in a digital form which mean that each of the earth’s features that are stored as spatial data has a unique geographic reference such as latitude and longitude. The increasing use of spatial data and GIS (Geographic Information System) by organizations and researchers is a valuable tool to help solve the planning and management issues in the coastal zone.</p>
+			    <p><?php print_r($array_of_results2[0]['Description']) ?></p>
 
-			    <p class="button-course"><button class="btn btn-default" data-toggle="modal" data-target="#Course">View Course</button></p>
+			    <p class="button-course"><button class="btn btn-default" data-toggle="modal" onclick="Set('<?php print_r($array_of_results2[0]['Title'])?>','<?php print_r($array_of_results2[0]['Description']) ?>')" data-target="#Course">View Course</button></p>
 
 			  <!-- </div> -->
 			  
@@ -280,15 +303,15 @@
     <div class="panel panel-default">
       <div class="panel-heading padding-left-30">
         <h4 class="panel-title ellipsis_oneline">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Integrated Coastal Zone Management</a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?php print_r($array_of_results2[1]['Title']) ?></a>
         </h4>
       </div>
       <div id="collapse2" class="panel-collapse collapse">
         <div class="panel-body padding-left-30">
 
-        <p>Integrated coastal zone management (ICZM) or Integrated coastal management (ICM) is a process for the management of the coast using an integrated approach, regarding all aspects of the coastal zone, including geographical and political boundaries, in an attempt to achieve sustainability.
+        <p><?php print_r($array_of_results2[1]['Description']);?>
         </p>
-        <p class="button-course"><button class="btn btn-default">View Course</button></p>
+        <p class="button-course"><button data-toggle="modal" class="btn btn-default" onclick="Set('<?php print_r($array_of_results2[1]['Title'])?>','<?php print_r($array_of_results2[1]['Description']) ?>')" data-target="#Course">View Course</button></p>
         </div>
         
       </div>
@@ -297,14 +320,14 @@
     <div class="panel panel-default">
       <div class="panel-heading padding-left-30">
         <h4 class="panel-title ellipsis_oneline">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Sediment Transport in Near Shore Areas</a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><?php print_r($array_of_results2[2]['Title']) ?></a>
         </h4>
       </div>
       <div id="collapse3" class="panel-collapse collapse">
         <div class="panel-body padding-left-30">
 
-        <p>Coastal sediment transport (a subset of sediment transport) is the interaction of coastal land forms to various complex interactions of physical processes. The primary agent in coastal sediment transport is wave activity (see Wind wave), followed by tides and storm surge (see Tide and Storm surge), and near shore currents. Wind-generated waves play a key role in the transfer of energy from the open ocean to the coastlines. In addition to the physical processes acting upon the shore, the size distribution of the sediment is a critical determination for how the beach will change (see Grain size determination). These various interactions generate a wide variety of beaches.</p>
-        <p class="button-course"><button class="btn btn-default">View Course</button></p>
+        <p><?php print_r($array_of_results2[2]['Description']) ?></p>
+        <p class="button-course"><button data-toggle="modal" class="btn btn-default" onclick="Set('<?php print_r($array_of_results2[2]['Title'])?>','<?php print_r($array_of_results2[2]['Description']) ?>')" data-target="#Course">View Course</button></p>
 
         </div>
       </div>
@@ -314,17 +337,15 @@
     <div class="panel panel-default">
       <div class="panel-heading padding-left-30">
         <h4 class="panel-title ellipsis_oneline">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Shoreline Management</a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><?php print_r($array_of_results2[3]['Title']) ?></a>
         </h4>
       </div>
       <div id="collapse4" class="panel-collapse collapse">
         <div class="panel-body padding-left-30">
 
-        <p>A Shoreline Management Plan (SMP) provides a large-scale assessment of the risks associated with coastal evolution and presents a policy framework to address these risks to people and the developed, historic and natural environment in a sustainable manner. In doing so, an SMP is a high-level document that forms an important part of the Department for Environment, Food and Rural Affairs (Defra) strategy for flood and coastal defence (Defra, 2001). 
-
-		The SMP is a non-statutory, policy document for coastal defence management planning. It takes account of other existing planning initiatives and legislative requirements, and is intended to inform wider strategic planning. It does not set policy for anything other than coastal defence management. 
+        <p><?php print_r($array_of_results2[3]['Description']); ?>
         </p>
-        <p class="button-course"><button class="btn btn-default">View Course</button></p>
+        <p class="button-course"><button data-toggle="modal" class="btn btn-default" onclick="Set('<?php print_r($array_of_results2[3]['Title'])?>','<?php print_r($array_of_results2[3]['Description']) ?>')" data-target="#Course">View Course</button></p>
         </div>
         
       </div>
@@ -454,13 +475,13 @@
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title"></h4>
+	          <h4 class="modal-title" id="Title-modal"></h4>
 	        </div>
 	        <div class="modal-body">
-	          <p><?php print_r($array_of_results1[1]['Description'])?></p>
+	          <p id="Description-modal"></p>
 	        </div>
 	        <div class="modal-footer">
-	          <button type="button" class="btn btn-default" data-dismiss="modal">Register</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal">View</button>
 	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	        </div>
 	      </div>
@@ -497,9 +518,22 @@
 		
 });
     </script>
+
+
+    <script type="text/javascript">
+    	
+	    function Set(a,b)
+	    {
+	    	
+	    	$('#Title-modal').html(a);
+	    	$('#Description-modal').html(b);
+	    }
+
+
+    </script>
    
 
-   <script type="text/javascript">
+   <!-- <script type="text/javascript">
    	
    	 $('#Course').on('show.bs.modal', function(e) {
 
@@ -513,7 +547,9 @@
             }
         });
     })
-   </script> 
+   </script>  -->
 
+
+  
   </body>
 </html>

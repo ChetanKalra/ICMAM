@@ -36,7 +36,7 @@ $upload=0;
 else if (!empty($name)){
 if (($fileextension !== "png") && ($fileextension !== "jpg") && ($fileextension !== "ico"))
 {
-echo "The file extension must be .mp4, .ogg, or .webm in order to be uploaded";
+echo "The file extension must be .png, .jpg, or .ico in order to be uploaded";
 $upload=0;
 }
 
@@ -66,7 +66,7 @@ if($upload==1)
 		//echo $name;
 		//exit;
 
-		$path_upload = '../../assets/Images/'.$name;
+		$path_upload = 'assets/Images/'.$name;
 		//echo $path_upload;
 		//exit;
 
@@ -105,7 +105,8 @@ if($upload==1)
 			$addcourse = $db->courses;
 			
 			$qry = array("Title" => $CourseTitle);
-
+			$users = 0;
+			$date1 = date("d/m/Y");
 			$doc = $addcourse->findOne($qry);
 				
 			 	if(!empty($doc))
@@ -114,7 +115,7 @@ if($upload==1)
 				}
 				else
 				{
-					$query=array("Title" => $CourseTitle,"Description" => $CourseDes, "Prof_Assigned"=>$ProfessorAss, "Duration"=>$Duration, "Start_Date"=>$Start_Date, "Img_Path"=>$path_upload);
+					$query=array("Title" => $CourseTitle,"Description" => $CourseDes, "Prof_Assigned"=>$ProfessorAss, "Duration"=>$Duration, "Start_Date"=>$Start_Date, "Img_Path"=>$path_upload, "insert_date"=> $date1,"UsersRegistered"=>$users);
 					
 					$addcourse->insert($query);
 					$flag = true;

@@ -1,13 +1,3 @@
-<!-- 
-
-<!DOCTYPE html>
-<body>
-<form action="" method='post' enctype="multipart/form-data">
-<input type="file" name="file"/><br><br>
-	<input type="submit" name="btn" value="Upload"/>
-</form>
-</form>
-</body> -->
 
 <?php 
 
