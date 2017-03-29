@@ -163,7 +163,7 @@
 				</div>
 			</div>
 			
-			<div class="row margin-top-20px pagination">
+			<div class="row margin-top-20px ">
 				<div class="col-md-12 default-padding">
 					
 					<div class="row">

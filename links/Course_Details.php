@@ -21,6 +21,17 @@
   // print_r($res);
   // exit;
 
+  $query1 = $collection->find()->sort(array('UsersRegistered'=>-1))->limit(4);
+	//$query1->sort(array('UsersRegistered'=>-1))->limit(6);
+	$results1 = iterator_to_array($query1);
+	$size = sizeof($results1);
+	$array_of_results1[0] = current($results1);
+	
+	for($i=1;$i<$size;$i++)
+	{
+		$array_of_results1[$i] = next($results1);
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +92,7 @@
 
 			<div class="row margin-top-60px courses-heading-users">
 				 <div class="col-md-12 ">
-				 	<h3 style="padding-bottom: 10px;">:</h3>
+				 	<h3 style="padding-bottom: 10px;"><?php print_r($res[0]['Title']) ?>:</h3>
 				 </div>
 			</div>
 
@@ -96,8 +107,33 @@
 
 					<div class="row margin-top-30px">
 						<div class="col-sm-6 col-md-12 default-padding iPad-resp">
-							<div href="#" class="thumbnail custom-thumbnail sidebar-responsive">
+							<div href="#" class="thumbnail custom-thumbnail sidebar-responsive zeropadding Course_Detail_lesson">
 							
+								<ul class="lessons-list">
+
+									<li class="Title">Welcome</li>
+									<li class="Title">Introduction</li>
+									<li class="Title">What is ...?</li>
+									
+									<li class="Title">Lesson1</li>
+									<li class="Title">Lesson2</li>
+									<li class="Title">Lesson3</li>
+									<li class="Title">Lesson4</li>
+									<li class="Title">Lesson5</li>
+									<li class="Title">Lesson6</li>
+									<li class="Title">Lesson7</li>
+									<li class="Title">Lesson8</li>
+									<li class="Title">Lesson9</li>
+									<li class="Title">Lesson10</li>
+									<li class="Title">Lesson11</li>
+									<li class="Title">Lesson12</li>
+									<li class="Title">Lesson13</li>
+									<li class="Title">Lesson14</li>
+									<li class="Title">Lesson15</li>
+									<li class="Title">Lesson16</li>
+
+
+								</ul>
 								
 							</div>
 						</div>
@@ -120,23 +156,93 @@
 				</div>
 			</div>
 			
-			<div class="row margin-top-20px pagination">
+			<div class="row margin-top-20px ">
 				<div class="col-md-12 default-padding">
 					
 					<div class="row">
 					
-						<div class="col-md-12">
-							<div class="col-md-4">
+						<div class="col-md-12" style="border: 1px solid #ddd; height: 700px; padding-top: 15px;">
+							<div class="col-md-4 zeropadding">
+								<img src=../<?php print_r($res[0]['Img_Path'])?> class="course-img">
+							</div>
+							<div class="col-md-8" >
+								 <h3 class="margin-top-0px">Description:</h3>
+                       			 <p><?php print_r($res[0]['Description']) ?></p>
+                       			 <div class="margin-top-20px">
+								
+									<button class="form-control custom-reg-btn">Register</button>
+									
+								</div>
+							</div>
 
-							</div>
-							<div class="col-md-8">
-							
-							</div>
 						</div>
 					  
 					</div>
 				</div>
 			</div>
+		</div>
+
+		<div class="row" style="margin-left: 15px;">
+					
+			<div class="col-md-12" style="border: 1px solid #ddd;  padding-top: 15px; padding-bottom: 15px;">
+					<h3 class="text-align-center">Related Courses</h3>
+					<div class="row margin-top-30px" id="related-course">
+						
+						<a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" onclick="Set('<?php print_r($array_of_results1[0]['Title'])?>','<?php print_r($array_of_results1[0]['Description']) ?>')">
+					 <div class="col-sm-6 col-md-3">
+					    <div class="thumbnail">
+					      <div class="overflow-hidden relative-pos"><img src=../<?php print_r($array_of_results1[0]['Img_Path']) ?> alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="caption">
+					        <!-- <h4 class="textcolor ellipsis_oneline">Satellite Oceanography</h4> -->
+					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[0]['Title']) ?></h4>
+					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[0]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[0]['Start_Date']) ?> </span></p>
+					        
+					      </div>
+					    </div>
+					 </div></a>
+
+
+
+						<a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" onclick="Set('<?php print_r($array_of_results1[1]['Title'])?>','<?php print_r($array_of_results1[1]['Description']) ?>')">
+						 <div class="col-sm-6 col-md-3">
+						    <div class="thumbnail">
+						      <div class="overflow-hidden relative-pos"><img src=../<?php print_r($array_of_results1[1]['Img_Path']) ?> alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+						      <div class="caption">
+						        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[1]['Title']) ?></h4>
+						        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[1]['Prof_Assigned'])?> <span class="alttextcolor"> | <?php print_r($array_of_results1[1]['Start_Date']) ?> </span></p>
+						        
+						      </div>
+						    </div>
+						 </div></a>
+
+
+						  <a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" onclick="Set('<?php print_r($array_of_results1[2]['Title'])?>','<?php print_r($array_of_results1[2]['Description']) ?>')">
+					 <div class="col-sm-6 col-md-3 ">
+					    <div class="thumbnail">
+					      <div class="overflow-hidden relative-pos"><img src=../<?php print_r($array_of_results1[2]['Img_Path']) ?> alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="caption">
+					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[2]['Title']) ?></h4>
+					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[2]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[2]['Start_Date']) ?> </span></p>
+					        
+					      </div>
+					    </div>
+					 </div></a>
+
+
+					 <a class="thumbnail-anchor" data-toggle="modal" data-target="#Course" onclick="Set('<?php print_r($array_of_results1[3]['Title'])?>','<?php print_r($array_of_results1[3]['Description']) ?>')">
+					 <div class="col-sm-6 col-md-3">
+					    <div class="thumbnail">
+					      <div class="overflow-hidden relative-pos"><img src=../<?php print_r($array_of_results1[3]['Img_Path']) ?> alt="..." class="img-dim"><span class="Preview">Preview</span></div>
+					      <div class="caption">
+					        <h4 class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[3]['Title']) ?></h4>
+					        <p class="textcolor ellipsis_oneline"><?php print_r($array_of_results1[3]['Prof_Assigned']) ?> <span class="alttextcolor"> | <?php print_r($array_of_results1[3]['Start_Date']) ?> </span></p>
+					        
+					      </div>
+					    </div>
+					 </div></a>
+					</div>
+			</div>
+					  
 		</div>
 
 
@@ -215,6 +321,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/scripts.js"></script>
 
+    
   
   </body>
 </html>

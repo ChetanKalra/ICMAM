@@ -149,35 +149,16 @@
 											<div class="col-md-6">
 												<div class="form-group has-feedback">
 													<div class="form-control-feedback">
-														<i class="icon-mention text-muted"></i>
+														<i class="icon-user-lock text-muted"></i>
 													</div>
-													<input type="email" class="form-control custom-input" placeholder="Repeat email" name="ConfirmEmail">
+													<input type="text" class="form-control custom-input" placeholder="Contact" name="Contact">
 													
 												</div>
 											</div>
 										</div>
 
 										<div class="form-group">
-											<!-- <div class="checkbox">
-												<label>
-													<input type="checkbox" class="styled" checked="checked">
-													Send me <a href="#">test account settings</a>
-												</label>
-											</div>
-
-											<div class="checkbox">
-												<label>
-													<input type="checkbox" class="styled" checked="checked">
-													Subscribe to monthly newsletter
-												</label>
-											</div>
-
-											<div class="checkbox">
-												<label>
-													<input type="checkbox" class="styled">
-													Accept <a href="#">terms of service</a>
-												</label>
-											</div> -->
+											
 										</div>
 
 										<div class="text-right padding-right-15 reg-btn-resp">
@@ -238,13 +219,15 @@
 			$LastName = $_POST['SecondName'];
 			$Email = $_POST['Email'];
 			$Password = $_POST['Password'];
+			$Contact = $_POST['Contact'];
 
 			$insert_data = array(
 				'Username'=>$Username,
 				'FirstName'=>$FirstName,
 				'LastName'=>$LastName,
 				'Password'=>$Password,
-				'Email'=>$Email
+				'Email'=>$Email,
+				'Contact'=>$Contact
 			);
 
 			$collection->insert($insert_data);

@@ -177,7 +177,7 @@
 				</div>
 			</div>
 			
-			<div class="row margin-top-20px pagination">
+			<div class="row margin-top-20px">
 				<div class="col-md-12 default-padding">
 					
 					<div class="row">
@@ -291,7 +291,7 @@
 			    <p><?php print_r($array_of_results2[0]['Description']) ?></p>
 
 			    <p class="button-course">
-			    <a href="links/Course_Details.php"><button class="btn btn-default" data-toggle="modal" data-target="#Course">View Course</button></a></p>
+			    <a href="links/Course_Details.php?Title=<?php print_r($array_of_results2[0]['Title']); ?>"><button class="btn btn-default" data-toggle="modal" data-target="#Course">View Course</button></a></p>
 
 			  <!-- </div> -->
 			  
@@ -313,7 +313,7 @@
         <p><?php print_r($array_of_results2[1]['Description']);?>
         </p>
         <p class="button-course">
-        <a href="links/Course_Details.php"><button data-toggle="modal" class="btn btn-default" data-target="#Course">View Course</button></a></p>
+        <a href="links/Course_Details.php?Title=<?php print_r($array_of_results2[0]['Title']); ?>"><button data-toggle="modal" class="btn btn-default" data-target="#Course">View Course</button></a></p>
         </div>
         
       </div>
@@ -329,7 +329,7 @@
         <div class="panel-body padding-left-30">
 
         <p><?php print_r($array_of_results2[2]['Description']) ?></p>
-        <p class="button-course"><a href="links/Course_Details.php"><button data-toggle="modal" class="btn btn-default" data-target="#Course">View Course</button></a></p>
+        <p class="button-course"><a href="links/Course_Details.php?Title=<?php print_r($array_of_results2[0]['Title']); ?>"><button data-toggle="modal" class="btn btn-default" data-target="#Course">View Course</button></a></p>
 
         </div>
       </div>
@@ -348,7 +348,7 @@
         <p><?php print_r($array_of_results2[3]['Description']); ?>
         </p>
         <p class="button-course">
-        <a href="links/Course_Details.php"><button data-toggle="modal" class="btn btn-default" data-target="#Course">View Course</button></a></p>
+        <a href="links/Course_Details.php?Title=<?php print_r($array_of_results2[0]['Title']); ?>"><button data-toggle="modal" class="btn btn-default" data-target="#Course">View Course</button></a></p>
         </div>
         
       </div>

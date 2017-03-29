@@ -117,6 +117,7 @@
 
 		if($user)
 		{
+			
 			if($Name=="Admin" && $Password == "Admin1234")
 			{
 				header('Location: '.'Admin/Dashboard.php');

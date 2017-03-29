@@ -48,9 +48,10 @@ $(function() {
       	equalTo: '#Password'
       },
 
-      ConfirmEmail: {
-      	equalTo: '#Email'
-      },
+      Contact: {
+        number: true;
+        minlength: 8
+      }
     },
     
     messages: {
@@ -78,7 +79,7 @@ $(function() {
 
       Email: "Please enter a valid email address",
       
-      ConfirmEmail: "Email should match",
+      //ConfirmEmail: "Email should match",
       
     },
     // Make sure the form is submitted to the destination defined
