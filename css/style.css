@@ -754,6 +754,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 24px;
 	padding-top: 15px;
 	color: #555;
+	padding-right: 20px;
 }
 
 .admin-courses{
@@ -868,4 +869,41 @@ h1, h2, h3, h4, h5, h6 {
 .lessons-list
 {
 	padding-left: 0px;
+}
+
+.video-lesson{
+	width: 300px;
+}
+
+.lesson-description{
+	/*height: 300px;*/
+	overflow-y: auto;
+}
+
+.pagination-button{
+	border-radius: 0px !important;
+	background-color: #fff !important;
+	border: 1px solid #999;
+}
+
+.pagination-button.active{
+
+	background-color: #ddd !important;
+	/*border: 1px solid #999;*/
+}
+
+.margin-bottom-0px{
+	margin-bottom: 0px !important;
+}
+
+.panel-group.mtop:first-child{
+
+}
+
+.fl{
+	float: left !important;
+}
+
+.fr{
+	float: right !important;
 }

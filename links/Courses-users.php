@@ -46,9 +46,62 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/animate.css" rel="stylesheet">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- <script type="text/javascript" src="js/jquery.quick.pagination.min.js"></script> -->
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
+    <!--Style for pagination-->
+     <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      .pagination {
+		  display: block;
+		  width: 75%;
+		  margin: 1em auto;
+		  text-align: center;
+		}
+		.pagination:after {
+		  content: '';
+		  clear: both;
+		}
+
+		.pagination-button {
+		  display: inline-block;
+		  padding: 5px 10px;
+		  border: 1px solid #e0e0e0;
+		  background-color: #eee;
+		  color: #333;
+		  cursor: pointer;
+		  transition: background 0.1s, color 0.1s;
+		}
+		.pagination-button:hover {
+		  background-color: #ddd;
+		  color: #3366cc;
+		}
+		.pagination-button.active {
+		  background-color: #bbb;
+		  border-color: #bbb;
+		  color: #3366cc;
+		}
+		.pagination-button:first-of-type {
+		  /*border-radius: 18px 0 0 18px;*/
+		}
+		.pagination-button:last-of-type {
+		  /*border-radius: 0 18px 18px 0;*/
+		}
+
+		/* arbitrary styles */
+		.heading {
+		  text-align: center;
+		  max-width: 500px;
+		  margin: 20px auto;
+		}
+
+		
+
+    </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
   </head>
   <body>
 
@@ -162,7 +215,8 @@
 					</h3>
 				</div>
 			</div>
-			
+			<!--Displaying the contents-->
+			<!-- <div class="article-loop"> -->
 			<div class="row margin-top-20px ">
 				<div class="col-md-12 default-padding">
 					
@@ -183,7 +237,8 @@
 
 					 		$onclick = "Set('".$t1."','".$t2."')";
 
-					 		echo "<a class='thumbnail-anchor' data-toggle='modal' data-id='Hello' data-target='#Course' onclick=".$onclick.">
+					 		echo "<div class='article-loop'>
+					 		<a class='thumbnail-anchor' data-toggle='modal' data-id='Hello' data-target='#Course' onclick=".$onclick.">
 					 			<div class='col-sm-6 col-md-4'>
 					  		  <div class='thumbnail'>
 					      <div class='overflow-hidden relative-pos'><img src='../"; print_r($array_of_results[$i]['Img_Path']); echo "' class='img-dim'><span class='Preview'>Preview</span></div>
@@ -194,16 +249,19 @@
 					        
 					      </div>
 					    </div>
-					 </div></a>";
+					 </div></a></div>";
 
 					 	}
 
 
 					 ?>  
 					  
-				</div>
+				
 			</div>
 		</div>
+		</div>
+
+
 	</div>
 
 
@@ -331,7 +389,9 @@
 	    }
 
     </script>
+    
 
+    <script src="../js/index_page.js"></script>
   
   </body>
 </html>

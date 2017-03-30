@@ -16,9 +16,35 @@
 
 
   $res[0] = current($array_of_results);
-  // print_r($array_of_results[0]['Img_Path']);
 
-  // print_r($res);
+
+  //print_r($res[0]['Title']);
+
+  $collection1 = $db->Lessons;
+
+  $query1 = $collection1->find(array("Title"=>$Title));
+
+  // print_r($query1);
+
+  $array_of_results1 = iterator_to_array($query1);
+
+  $res1[0] = current($array_of_results1);
+
+  for($i=1;$i<sizeof($array_of_results1);$i++)
+  {
+    $res1[$i] = next($array_of_results1);
+
+  }
+
+  //$i=0;
+  //print_r($res1[$i]['Lesson1'][0]);
+
+
+  // print_r($res1);
+
+
+
+
   // exit;
 
 ?>
@@ -122,12 +148,79 @@
                       </div>
 
                       <div class="col-md-8">
-                        <h3 class="margin-top-0px">Description:</h3>
+                        <h3 class="margin-top-0px text-color-555">Description</h3>
                         <p><?php print_r($res[0]['Description']) ?></p>
                       </div>
 
+                    </div>
+
+
+                   
+
+                      
+
 
                     </div>
+
+
+
+                    <div class="row" style="margin-top: 20px; margin-bottom: 30px;">
+
+                      <?php
+
+                      for($i=0;$i<sizeof($res1);$i++)
+                      {
+
+                        $k = $i+1;
+
+
+                        echo "<div class='panel-group margin-bottom-0px mtop' id='accordio'>
+                        <div class='panel panel-default'>
+                          <div class='panel-heading'>
+                            <h4 class='panel-title ellipsis_oneline'>
+                              <a data-toggle='collapse' data-parent='#accordion' href='#collapse".$k." '>Lesson $k: ".$res1[$i]['Lesson'][0]."</a>
+                            </h4>
+                          </div>
+                          <div id='collapse".$k."' class='panel-collapse collapse'>
+                            <div class='panel-body'>
+
+                              <div class='row'>
+                          
+                                <div class='col-md-12 zeropadding'>
+                                  <div class='col-md-4 zeropadding'>
+                                    <video src='../../".$res1[$i]['Lesson'][2]."' controls class='img-responsive video-lesson'></video>
+                                  </div>
+                                  <div class='col-md-8'>
+                                    <p class='lesson-description'>".$res1[$i]['Lesson'][1]."</p>
+                                  </div>
+                                </div>
+        
+                              </div>
+
+                             </div>
+                          </div>
+                        </div>
+                      </div>";
+
+
+                    }
+
+                      ?>
+
+                       <div class="col-md-12 lesson-accordion zeropadding">
+                      <div class="panel-group margin-bottom-0px margin-top-30px" >
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title ">
+                              <a data-toggle="modal" data-target="#add-lesson-modal" class="nodecoration">Add a Lesson</a>
+                            </h4>
+                          </div>
+                          
+                        </div>
+                      </div>
+
+                      </div>
+
 
                   </div>
               
@@ -136,23 +229,40 @@
           </div>
       </div>
 
-      <!-- Modal -->
-    <div class="modal fade" id="add-modal" role="dialog">
+    
+
+   <!-- Modal -->
+    <div class="modal fade" id="add-lesson-modal" role="dialog">
       <div class="modal-dialog">
       
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">..</h4>
+            <h4 class="modal-title">Add a lesson</h4>
           </div>
           <div class="modal-body">
-            <p>...</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Register</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+            <form action="upload_lesson.php?Title=<?php echo $Title ?>" method="post" enctype="multipart/form-data">
+              <input type="text" placeholder="Title" class="form-control custom-input margin-top-10px" name="LessonTitle">
+
+              <textarea class="form-control textarea-box margin-top-30px" placeholder="Description" style="height: 150px" name="LessonDes"></textarea>
+
+              <input type="file" name="file" class="margin-top-30px">
+              
+
+              <!-- <button type="button" class="btn btn-default" name="upload-lesson">Upload</button> -->
+
+              <div class="row clearfix margin-top-20px">
+                <input type="submit" name="upload-lesson" style="width: auto; margin-left: 10px; " class="form-control fr" value="Upload">
+                <button type="button" class="btn btn-default fr" data-dismiss="modal">Close</button>
+               </div>
+
+            </form>
+          <!-- </div>
+           div class="modal-footer">-->
+            
+           
+          <!-- </div> -->
         </div>
         
       </div>

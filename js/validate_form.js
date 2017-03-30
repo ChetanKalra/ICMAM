@@ -49,8 +49,9 @@ $(function() {
       },
 
       Contact: {
-        number: true;
-        minlength: 8
+        number: true,
+        minlength: 8,
+        required: true
       }
     },
     
@@ -78,6 +79,12 @@ $(function() {
       },
 
       Email: "Please enter a valid email address",
+
+      Contact: {
+        number: "Please enter a valid number",
+        minlength: "Please enter a valid number",
+        required: "Please enter your contact number"
+      }
       
       //ConfirmEmail: "Email should match",
       
